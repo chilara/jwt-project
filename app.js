@@ -5,10 +5,18 @@ const User = require("./model/user");
 const auth = require("./middleware/auth");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const cors = require("cors");
 
 const app = express();
 
 app.use(express.json());
+
+const corsOptions = {
+  origin: "*",
+  methodS: ["GET", "POST"],
+  allowedHeaders: ["Content-Type"],
+};
+app.use(cors(corsOptions));
 
 // Logic goes here
 
